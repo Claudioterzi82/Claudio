@@ -1,5 +1,5 @@
 {
-  "ts": "2026-09-13T10:45:06.792788",
+  "ts": "2026-09-14T11:09:14.375384",
   "score_sistema": 92,
   "sicurezza": {
     "agente": "CODE_SCANNER",
@@ -17,7 +17,7 @@
     ],
     "pattern_scansionati": 14,
     "ok": true,
-    "tempo_s": 0.197
+    "tempo_s": 0.217
   },
   "qualita": {
     "agente": "CODE_SCANNER",
@@ -50,7 +50,7 @@
     ],
     "pattern_analizzati": 11,
     "file_py_analizzati": 84,
-    "tempo_s": 0.179
+    "tempo_s": 0.196
   },
   "dipendenze": {
     "agente": "CODE_SCANNER",
@@ -191,6 +191,9 @@
       "sar.memoria_evolutiva": [
         "from ..memory.vss import VectorStateStore"
       ],
+      "config.__init__": [
+        "from .loader import SDQ1Config, AgenteConfig, carica_config"
+      ],
       "sar.__init__": [
         "from .archivio_vivente import ArchivioVivente",
         "from .ciclo import CicloAutoriflessione, EsitoCiclo",
@@ -205,9 +208,6 @@
         "from .sar import ScacchieraAutoRiflessiva, ReportSAR",
         "from .sognatore import SognatoreSDQ, VisioneSognatrice",
         "from .tensioni import MappaTeensioni, Tensione, Polo, Osserv"
-      ],
-      "config.__init__": [
-        "from .loader import SDQ1Config, AgenteConfig, carica_config"
       ]
     },
     "dipendenze_esterne": {
@@ -221,7 +221,7 @@
       "xml"
     ],
     "circolari_sospette": [],
-    "tempo_s": 0.04
+    "tempo_s": 0.048
   },
   "metriche": {
     "agente": "CODE_SCANNER",
@@ -1040,7 +1040,7 @@
         "complessita": 3.2
       }
     },
-    "tempo_s": 0.067
+    "tempo_s": 0.071
   },
-  "tempo_totale_s": 0.483
+  "tempo_totale_s": 0.532
 }
