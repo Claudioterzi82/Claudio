@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-09T14:37:18.937703",
+  "ts": "2026-11-10T13:54:44.777989",
   "score_sistema": 92,
   "sicurezza": {
     "agente": "CODE_SCANNER",
@@ -50,7 +50,7 @@
     ],
     "pattern_analizzati": 11,
     "file_py_analizzati": 84,
-    "tempo_s": 0.066
+    "tempo_s": 0.07
   },
   "dipendenze": {
     "agente": "CODE_SCANNER",
@@ -63,22 +63,6 @@
       ],
       "memory.vss": [
         "from .store import MemoriaVettoriale, RisultatoRicerca"
-      ],
-      "agents.__init__": [
-        "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
-        "from .registry import costruisci_agenti, registra"
-      ],
-      "agents.implementazioni": [
-        "from ..config.loader import AgenteConfig",
-        "from ..llm.client import ClaudeClient",
-        "from ..memory.store import MemoriaVettoriale",
-        "from ..memory.vss import VectorStateStore",
-        "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
-        "from .registry import registra"
-      ],
-      "agents.registry": [
-        "from ..config.loader import AgenteConfig, SDQ1Config",
-        "from .base import AgenteBase"
       ],
       "sar.__init__": [
         "from .archivio_vivente import ArchivioVivente",
@@ -106,11 +90,6 @@
       "sar.ciclo": [
         "from .tensioni import Tensione"
       ],
-      "voli.__init__": [
-        "from .agenti import CronistaVoli, EsitoScout, ScoutVoli, Val",
-        "from .caccia import Cacciatore, RisultatoCaccia",
-        "from .rotte import ROTTE, Rotta, rotte_per_tag"
-      ],
       "sar.agenti_autonomi": [
         "from .scacchiera_quantica import AutoriflessoreV3, Scacchier"
       ],
@@ -122,36 +101,15 @@
         "from .persistence import PersistenzaSAR",
         "from .tensioni import MappaTeensioni, Polo, Tensione"
       ],
-      "voli.agenti": [
-        "from .. import notifiche",
-        "from .ambiente import telegram_pronto",
-        "from .rotte import Rotta"
-      ],
-      "voli.caccia": [
-        "from . import lowcost, radar",
-        "from .agenti import CronistaVoli, ScoutVoli, ValutatoreVoli,",
-        "from .ambiente import telegram_pronto",
-        "from .rotte import ROTTE, Rotta, rotte_per_tag"
-      ],
       "persistence.__init__": [
         "from .store import StatoStore, InMemoryStore, RedisStore, cr"
-      ],
-      "voli.__main__": [
-        "from .caccia import main"
       ],
       "llm.__init__": [
         "from .client import ClaudeClient",
         "from .router import LLMRouter, RegolaRouter, crea_router_da_"
       ],
-      "futures.__init__": [
-        "from .scenari import SCENARI_DEFAULT",
-        "from .simulatore import SimulatoreScenari, RisultatoScenario"
-      ],
       "llm.client": [
         "from .router import LLMRouter"
-      ],
-      "futures.simulatore": [
-        "from .scenari import Scenario"
       ],
       "llm.providers.__init__": [
         "from .anthropic_provider import AnthropicProvider",
@@ -183,21 +141,6 @@
       "config.__init__": [
         "from .loader import SDQ1Config, AgenteConfig, carica_config"
       ],
-      "monitoring.health": [
-        "from ..llm.router import LLMRouter, PROVIDER_REGISTRY"
-      ],
-      "monitoring.__init__": [
-        "from .health import HealthChecker, StatoSalute",
-        "from .metrics import MetricsCollector, MetricaChiamata"
-      ],
-      "monitoring.metrics": [
-        "from ..persistence.store import StatoStore"
-      ],
-      "orchestrator.gerarchico": [
-        "from ..agents.base import AgenteBase, MessaggioAgente, Rispo",
-        "from ..config.loader import SDQ1Config",
-        "from ..persistence.store import StatoStore"
-      ],
       "__main__": [
         "from .agents import costruisci_agenti, implementazioni",
         "from .config import carica_config",
@@ -208,6 +151,63 @@
         "from .monitoring import HealthChecker, MetricsCollector",
         "from .orchestrator.gerarchico import OrchestratoreGerarchico",
         "from .persistence.store import crea_store"
+      ],
+      "agents.__init__": [
+        "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
+        "from .registry import costruisci_agenti, registra"
+      ],
+      "monitoring.__init__": [
+        "from .health import HealthChecker, StatoSalute",
+        "from .metrics import MetricsCollector, MetricaChiamata"
+      ],
+      "orchestrator.gerarchico": [
+        "from ..agents.base import AgenteBase, MessaggioAgente, Rispo",
+        "from ..config.loader import SDQ1Config",
+        "from ..persistence.store import StatoStore"
+      ],
+      "voli.__init__": [
+        "from .agenti import CronistaVoli, EsitoScout, ScoutVoli, Val",
+        "from .caccia import Cacciatore, RisultatoCaccia",
+        "from .rotte import ROTTE, Rotta, rotte_per_tag"
+      ],
+      "agents.registry": [
+        "from ..config.loader import AgenteConfig, SDQ1Config",
+        "from .base import AgenteBase"
+      ],
+      "voli.agenti": [
+        "from .. import notifiche",
+        "from .ambiente import telegram_pronto",
+        "from .rotte import Rotta"
+      ],
+      "monitoring.metrics": [
+        "from ..persistence.store import StatoStore"
+      ],
+      "voli.caccia": [
+        "from . import lowcost, radar",
+        "from .agenti import CronistaVoli, ScoutVoli, ValutatoreVoli,",
+        "from .ambiente import telegram_pronto",
+        "from .rotte import ROTTE, Rotta, rotte_per_tag"
+      ],
+      "monitoring.health": [
+        "from ..llm.router import LLMRouter, PROVIDER_REGISTRY"
+      ],
+      "voli.__main__": [
+        "from .caccia import main"
+      ],
+      "agents.implementazioni": [
+        "from ..config.loader import AgenteConfig",
+        "from ..llm.client import ClaudeClient",
+        "from ..memory.store import MemoriaVettoriale",
+        "from ..memory.vss import VectorStateStore",
+        "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
+        "from .registry import registra"
+      ],
+      "futures.simulatore": [
+        "from .scenari import Scenario"
+      ],
+      "futures.__init__": [
+        "from .scenari import SCENARI_DEFAULT",
+        "from .simulatore import SimulatoreScenari, RisultatoScenario"
       ]
     },
     "dipendenze_esterne": {
@@ -221,7 +221,7 @@
       "xml"
     ],
     "circolari_sospette": [],
-    "tempo_s": 0.023
+    "tempo_s": 0.025
   },
   "metriche": {
     "agente": "CODE_SCANNER",
@@ -1042,5 +1042,5 @@
     },
     "tempo_s": 0.04
   },
-  "tempo_totale_s": 0.237
+  "tempo_totale_s": 0.243
 }
