@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-14T12:39:36.813106",
+  "ts": "2026-11-15T13:05:38.213337",
   "score_sistema": 92,
   "sicurezza": {
     "agente": "CODE_SCANNER",
@@ -17,7 +17,7 @@
     ],
     "pattern_scansionati": 14,
     "ok": true,
-    "tempo_s": 0.078
+    "tempo_s": 0.112
   },
   "qualita": {
     "agente": "CODE_SCANNER",
@@ -32,11 +32,11 @@
         "debito": 15
       },
       {
-        "file": "sdq1/guardian.py",
+        "file": "sdq1/nas.py",
         "debito": 13
       },
       {
-        "file": "sdq1/nas.py",
+        "file": "sdq1/guardian.py",
         "debito": 13
       },
       {
@@ -50,7 +50,7 @@
     ],
     "pattern_analizzati": 11,
     "file_py_analizzati": 84,
-    "tempo_s": 0.055
+    "tempo_s": 0.071
   },
   "dipendenze": {
     "agente": "CODE_SCANNER",
@@ -90,19 +90,8 @@
       "sar.ciclo": [
         "from .tensioni import Tensione"
       ],
-      "monitoring.__init__": [
-        "from .health import HealthChecker, StatoSalute",
-        "from .metrics import MetricsCollector, MetricaChiamata"
-      ],
       "sar.agenti_autonomi": [
         "from .scacchiera_quantica import AutoriflessoreV3, Scacchier"
-      ],
-      "llm.__init__": [
-        "from .client import ClaudeClient",
-        "from .router import LLMRouter, RegolaRouter, crea_router_da_"
-      ],
-      "llm.client": [
-        "from .router import LLMRouter"
       ],
       "sar.sar": [
         "from ..memory.vss import VectorStateStore",
@@ -112,16 +101,15 @@
         "from .persistence import PersistenzaSAR",
         "from .tensioni import MappaTeensioni, Polo, Tensione"
       ],
-      "monitoring.metrics": [
-        "from ..persistence.store import StatoStore"
+      "persistence.__init__": [
+        "from .store import StatoStore, InMemoryStore, RedisStore, cr"
       ],
-      "monitoring.health": [
-        "from ..llm.router import LLMRouter, PROVIDER_REGISTRY"
+      "llm.__init__": [
+        "from .client import ClaudeClient",
+        "from .router import LLMRouter, RegolaRouter, crea_router_da_"
       ],
-      "orchestrator.gerarchico": [
-        "from ..agents.base import AgenteBase, MessaggioAgente, Rispo",
-        "from ..config.loader import SDQ1Config",
-        "from ..persistence.store import StatoStore"
+      "llm.client": [
+        "from .router import LLMRouter"
       ],
       "llm.providers.__init__": [
         "from .anthropic_provider import AnthropicProvider",
@@ -137,11 +125,21 @@
       "llm.providers.anthropic_provider": [
         "from .base import ProviderBase"
       ],
-      "persistence.__init__": [
-        "from .store import StatoStore, InMemoryStore, RedisStore, cr"
-      ],
       "llm.providers.stub_provider": [
         "from .base import ProviderBase"
+      ],
+      "llm.providers.gemini_provider": [
+        "from .base import ProviderBase"
+      ],
+      "llm.providers.ollama_provider": [
+        "from .base import ProviderBase"
+      ],
+      "llm.router": [
+        "from .providers import (",
+        "from .specializzazioni import classifica, nodo_per_problema"
+      ],
+      "config.__init__": [
+        "from .loader import SDQ1Config, AgenteConfig, carica_config"
       ],
       "agents.__init__": [
         "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
@@ -158,15 +156,26 @@
         "from .orchestrator.gerarchico import OrchestratoreGerarchico",
         "from .persistence.store import crea_store"
       ],
-      "llm.providers.gemini_provider": [
-        "from .base import ProviderBase"
+      "monitoring.__init__": [
+        "from .health import HealthChecker, StatoSalute",
+        "from .metrics import MetricsCollector, MetricaChiamata"
       ],
-      "llm.providers.ollama_provider": [
-        "from .base import ProviderBase"
+      "orchestrator.gerarchico": [
+        "from ..agents.base import AgenteBase, MessaggioAgente, Rispo",
+        "from ..config.loader import SDQ1Config",
+        "from ..persistence.store import StatoStore"
+      ],
+      "voli.__init__": [
+        "from .agenti import CronistaVoli, EsitoScout, ScoutVoli, Val",
+        "from .caccia import Cacciatore, RisultatoCaccia",
+        "from .rotte import ROTTE, Rotta, rotte_per_tag"
       ],
       "agents.registry": [
         "from ..config.loader import AgenteConfig, SDQ1Config",
         "from .base import AgenteBase"
+      ],
+      "monitoring.metrics": [
+        "from ..persistence.store import StatoStore"
       ],
       "agents.implementazioni": [
         "from ..config.loader import AgenteConfig",
@@ -176,31 +185,22 @@
         "from .base import AgenteBase, MessaggioAgente, RispostaAgent",
         "from .registry import registra"
       ],
-      "llm.router": [
-        "from .providers import (",
-        "from .specializzazioni import classifica, nodo_per_problema"
-      ],
-      "voli.__init__": [
-        "from .agenti import CronistaVoli, EsitoScout, ScoutVoli, Val",
-        "from .caccia import Cacciatore, RisultatoCaccia",
-        "from .rotte import ROTTE, Rotta, rotte_per_tag"
-      ],
-      "voli.__main__": [
-        "from .caccia import main"
-      ],
-      "config.__init__": [
-        "from .loader import SDQ1Config, AgenteConfig, carica_config"
-      ],
       "voli.agenti": [
         "from .. import notifiche",
         "from .ambiente import telegram_pronto",
         "from .rotte import Rotta"
+      ],
+      "voli.__main__": [
+        "from .caccia import main"
       ],
       "voli.caccia": [
         "from . import lowcost, radar",
         "from .agenti import CronistaVoli, ScoutVoli, ValutatoreVoli,",
         "from .ambiente import telegram_pronto",
         "from .rotte import ROTTE, Rotta, rotte_per_tag"
+      ],
+      "monitoring.health": [
+        "from ..llm.router import LLMRouter, PROVIDER_REGISTRY"
       ],
       "futures.simulatore": [
         "from .scenari import Scenario"
@@ -221,7 +221,7 @@
       "xml"
     ],
     "circolari_sospette": [],
-    "tempo_s": 0.016
+    "tempo_s": 0.024
   },
   "metriche": {
     "agente": "CODE_SCANNER",
@@ -1040,7 +1040,7 @@
         "complessita": 3.2
       }
     },
-    "tempo_s": 0.021
+    "tempo_s": 0.04
   },
-  "tempo_totale_s": 0.17
+  "tempo_totale_s": 0.247
 }
